@@ -1,0 +1,59 @@
+<!-- 
+    Document   : soashable2.html
+    Created on : Aug 4, 2008, 9:55:09 PM
+    Author     : Harlan
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>Soashable 2.0</title>
+        <!--
+        <script type="text/javascript" src="http://o.aolcdn.com/dojo/1.1.1/dojo/dojo.xd.js" djConfig="parseOnLoad: false"></script>
+        -->
+        <script type="text/javascript" src="scripts/dojo/dojo/dojo.js" djConfig="parseOnLoad: false, debugAtAllCosts: true"></script>
+        <script type="text/javascript">
+            // for some reason it knows to look under scripts. relative to dojo?
+            dojo.registerModulePath("soashable","../../../scripts");
+        </script>
+        <script type="text/javascript" src="scripts/lib/crypto/crypto.js"></script>
+        <script type="text/javascript" src="scripts/lib/xml4script/dom-all.js"> </script>
+        <script type="text/javascript" src="scripts/lib/log4js/log4js.js"> </script>
+        <script type="text/javascript" src="scripts/lib/xmpp4js/xmpp4js.js"> </script>
+        
+        <script type="text/javascript" src="scripts/lib/jquery/jquery.js"></script>
+        
+        <script type="text/javascript" src="scripts/soashable.js"></script>
+        
+        <script type="text/javascript">
+            dojo.require("soashable.Application");
+            dojo.require("soashable.widget.StatusBox");
+            dojo.require("soashable.widget.DemoWindow");
+            dojo.require("soashable.widget.ChatPane");
+
+           dojo.addOnLoad(function(){
+                application = new soashable.Application();
+                application.start();
+                
+                sb = new soashable.widget.StatusBox();
+                document.body.appendChild( sb.domNode );
+                
+                dw = new soashable.widget.DemoWindow();
+                cp = new soashable.widget.ChatPane();
+                dw.setContent( cp.domNode );
+            
+                document.body.appendChild( dw.domNode );
+                dw.show();
+            });
+        </script>
+        <style>
+            body {
+                overflow: hidden;
+                margin: 0px;
+                padding: 0px
+            }
+        </style>
+    </head>
+    <body>
+        
+    </body>
+</html>

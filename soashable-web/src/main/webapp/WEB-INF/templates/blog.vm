@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>$feed.title</title>
+    </head>
+    <body>
+#foreach( $entry in $feed.entries ) 
+    <div class="blog-entry">
+	<h2><a href="$entry.link" target="_blank">$entry.title</a></h2>
+        <span>Posted by #foreach( $author in $entry.authors) $author.name #end</span>
+        <span>on $entry.updatedDate</span>
+	
+        <div class="blog-content">
+	#foreach( $content in $entry.contents) 
+		$content.value
+	#end
+        </div>
+    </div>
+#end
+    </body>
+</html>

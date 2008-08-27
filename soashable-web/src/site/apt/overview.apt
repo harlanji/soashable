@@ -1,0 +1,118 @@
+ ------
+ Overview of the Soashable Platform
+ ------
+ Harlan Iverson
+ ------
+ 02/08/2008
+ ------
+
+Overview of the Soashable Platform
+
+ Soashable stems from a long lineage of ideas related to open, descentralized 
+ communication platforms. Past incarnations have been too ambitious for a lone 
+ developer to even dream of finishing; so Soashable is a dumbed down, realistic
+ implementation of a simple Meebo clone, on which more interesting ideas will
+ be built. 
+
+ Whenever possible, it uses existing technology and tools rather than re-inventing 
+ the wheel. Future enhancements are, however, kept in mind and great care has been
+ taken to select existing tools that will cater to that, and built when absolutely 
+ necessary.
+
+* A Brief History of Soashable
+
+ <Originally a blog post: {{{http://blog.devspan.com/2007/08/brief-history-of-soashable.html}here}}>
+
+** IP Chat
+
+ It stems from the very first application I made beyond my "AOL Proggie" days 
+ (~1999)--an IP chat application. It was simple, you typed in the IP address 
+ of a friend's computer who was running the application, and it would connect 
+ and open a chat window. Eventually I added Rich Text and the ability for many 
+ people to connect to a single computer.
+
+** LoopyTOC
+
+ After that, I decided that a stand-alone, centralized server would be the way to 
+ go to avoid any confusion about what an "IP Address" is from my friends and 
+ their friends. I was armed with new knowledge of AOL's open TOC (Text to Oscar)
+ protocol, and decided I would make my client use the AOL network. I carried 
+ on development and eventually released an ActivceX control called LoopyTOC, 
+ around the same time as another fellow by the name of "dos" released a TOC 
+ client that went on to win Planet Source Code's code of the month award. 
+ The timing led to accusations that I stole his code (I didn't), and me 
+ eventually being 'booed' off of Planet Source Code--the issue was cleared up 
+ with the other programmer, as I sent him my source code to examine the 
+ differences.
+
+** COSMACS
+
+ With TOC behind me, I started a new server that supported everything my original 
+ version did, but was also "open source"--a new term I heard about while I 
+ was changing from a flat-file database to MySQL. By this time I was 16 
+ years old (2001), and the new project was called COSMACS--Community, 
+ Open Source, Messaging and Chat System (@archive.org). Around the same 
+ time, I had built a website called iSpooge which ended up taking most of my 
+ attention away from COSMACS, because COSMACS didn't give me instant 
+ gratification like running an "E/N" site did (Entertainment/News is what 
+ Blogs were called). My interest started drifting towards PHP CMSs (Content 
+ Management Systems) geared toward E/N sites.
+
+** iSpooge
+
+ iSpooge put me in touch with the more social aspects of the web, beyond just 
+ instant messaging and chat. The site had a variety of Javascript games to which 
+ I programmed a score-keeping backend, and "coolness points" that were gained 
+ for various actions on the site. It was a small community of friends from high 
+ school and unconnected circles of friends on the internet, but the comments 
+ gave people a place to chat and the coolness points gave them reason to 
+ interact. It excited me to come home at night and read all the new posts 
+ and comments on the site.
+
+ As iSpooge became more popular, I tried a strategy called uSpooge, which 
+ filtered blog posts by user, in essence giving them their own blog. I believe 
+ this may have been a reaction to LiveJournal, which was barely taking off 
+ around this time. The rise of LiveJournal, however, meant the downfall of 
+ i/uSpooge. My theory is that with more options, the novelty of my blog 
+ wore off :(.
+
+** Flirting with the Devil
+
+ Sad to say, at about this time I also started getting into girls and the 
+ project laid dormant until about 2 years ago.
+
+** OsSpace
+
+ The next incarnation was called OsSpace (Open-Source Space), a clone of the 
+ ridiculously crappy and proprietary, yet successful MySpace. It was slated 
+ to use open standards like OpenID, FOAF, RSS, xCal, Jabber and a slew of 
+ other technologies to form a federated social networking system. The principle 
+ idea was to give freedom to users and developers by allowing them to make 
+ friends with anybody on any network, and to move between networks without 
+ losing those connections. The open nature of it allowed different networks 
+ to cater to different demographics without isolating them. Sites could 
+ cooperate and have high levels of integration with each other, simply 
+ play nice without inter-operating anything more than identity, or completely 
+ isolate themselves (Intranet).
+
+ In order to make OsSpace real, I placed an ad on Craigslist searching for 
+ anyone interested in learning technologies X, Y and Z that I had planned to 
+ use, and enlisted a friend from high school to help out. We drew up a lot of 
+ plans, but our shortcomings caused the project to lose steam and eventually no 
+ more progress was made. From that experience, I learned that not everybody 
+ needs to (or should) be involved in every aspect of a project; perhaps they 
+ should only be involved in what they're good at. I also found that feature 
+ creep was a huge problem, because things would get partly done and then I 
+ wanted to change everything to incorporate new feature CX3750. As a 
+ programmer for a small web firm, I should have been more conscious of 
+ that, being that so many projects I was on ran orders of magnitude over 
+ budget and past deadlines due to feature creep.
+
+** Soashable
+
+ This time around, with lessons learned from OsSpace in mind and a network of 
+ people with diverse skills that I can identify, as well as potential business 
+ connections, I think Soashable can be as successful as I try to make it. 
+ The principles from OsSpace remain the same, but the limited scope is an 
+ important part of the grand strategy. A Meebo clone it is, and if I can stick 
+ with that then it might actually get done this time.

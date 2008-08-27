@@ -1,0 +1,10 @@
+Xmpp4Js
+
+Includes uncompressed script and all uncompressed dependencies:
+- XML for <script>
+- extjs 2.0
+- crypto library
+
+And a sample client.
+
+Please see documentation at http://xmpp4js.sourceforge.net

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<assembler>
+    <scripts>
+        <script>
+            <fileName>soashable.js</fileName>
+            <includes>
+                
+
+
+            </includes>
+        </script>
+    </scripts>
+</assembler>

@@ -1,0 +1,79 @@
+ ------
+Code and Layout Conventions
+ ------
+ Harlan Iverson
+ ------
+ 08/05/2008
+ ------
+
+Code and Layout Conventions
+
+
+Layout
+
+* Model-View-Controller
+
+ Code is laid out in an MVC fashion, with directories for each respective type
+ of class. Each directory as a _package.js file which does things like declare 
+ the namespace. The assembly file is sure to include it once before the rest of
+ the directory is included.
+
+* Unit Testing
+
+ There is no defined convention for unit test layouts. Presumably it should mirror 
+ that of the javascript classes.
+
+* Integration Testing
+
+ These can include things like Grinder and Selenium. Nothing is decided at this 
+ point.
+
+
+Code Conventions
+
+* Formatting
+
++------------------------------------------------------------------------------+
+
+// declare the namespace in the _package.js file
+Xmpp4Js.Lang.namespace( "soashable" );
+
+soashable.SomeClass = function( param1, param2 ) {
+
+    // first set field values
+    this.param1 = param1;
+    this.param2 = param2;
+
+    // then add the events
+    this.addEvents({
+      /**
+       * @event event_one
+       * @param param3 {String} description of param3
+       */
+      event_one: true
+    });
+
+    // then add event listeners. prefer the compound on style if there are many
+    this.childObj.on({
+      scope: this, // scope first
+      event_two: this.eventTwoFired, // use past tense of verb last
+      event_three: this.eventThreeFirsed
+    });
+
+    // then do whatever other stuff needs to happen
+    // ...
+
+    // then call the super constructor
+    soashable.SomeClass.superclass.constructor.call( this, param1 );
+    
+}
+
+// create the prototype separately so jsdoc can still work, and pass it in here.
+Xmpp4Js.Lang.extend( soashable.SomeClass, Xmpp4Js.Event.EventProvider, soashable.SomeClass.prototype );
+
+
+
+var someClass = new soashable.SomeClass( "param1", "param2" );
+
+
++------------------------------------------------------------------------------+
