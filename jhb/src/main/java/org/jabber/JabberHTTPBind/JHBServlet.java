@@ -51,17 +51,19 @@ public final class JHBServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String APP_VERSION = "1.1";
+	public static final String APP_VERSION = "1.1.1";
 
 	public static final String APP_NAME = "Jabber HTTP Binding Servlet";
 
-	public static final boolean DEBUG = true;
+	public static final boolean DEBUG = false;
 
 	public static final int DEBUG_LEVEL = 2;
 
 	private DocumentBuilder db;
 
 	private Janitor janitor;
+
+	private static JHBServlet srv;
 
 	public void init() throws ServletException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -74,6 +76,7 @@ public final class JHBServlet extends HttpServlet {
 
 		janitor = new Janitor(); // cleans up sessions
 		new Thread(janitor).start();
+		srv = this;
 	}
 
 	public void destroy() {
@@ -108,7 +111,7 @@ public final class JHBServlet extends HttpServlet {
 			return;
 		if (lvl > DEBUG_LEVEL)
 			return;
-		System.err.println("[" + lvl + "] " + msg);
+		srv.log("[" + lvl + "] " + msg);
 	}
 
 	/**

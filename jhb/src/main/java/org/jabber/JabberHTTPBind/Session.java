@@ -272,6 +272,7 @@ public class Session {
 		// If no socket has been opened, try connecting trough the 'to'
 		// attribute.
 		if (this.sock == null || !this.sock.isConnected()) {
+			this.sock = new Socket();
 			JHBServlet.dbg("Trying to use 'to' attribute to open a socket...",
 					3);
 			host = DNSUtil.resolveXMPPServerDomain(to, DEFAULT_XMPPPORT);
@@ -282,11 +283,11 @@ public class Session {
 						.getPort()), SOCKET_TIMEOUT);
 			} catch (UnknownHostException uhe) {
 				JHBServlet.dbg(
-						"Failed to open a socket using the 'to' attribute", 3);
+							   "Failed to open a socket using the 'to' attribute: " + uhe.toString(), 3);
 				throw uhe;
 			} catch (IOException ioe) {
 				JHBServlet.dbg(
-						"Failed to open a socket using the 'to' attribute", 3);
+							   "Failed to open a socket using the 'to' attribute: " + ioe.toString(), 3);
 				throw ioe;
 			}
 		}
