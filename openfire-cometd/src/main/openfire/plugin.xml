@@ -1,0 +1,19 @@
+<plugin>
+  <!-- Main plugin class -->
+  <class>com.soashable.openfirecometd.CometdPlugin</class>
+
+  <!-- Plugin meta-data -->
+  <name>Cometd Connection Support</name>
+  <description>Allows Bayeux / Cometd Connections</description>
+  <author>Harlan Iverson</author>
+  <version>1.0</version>
+  <date>2008-08-11</date>
+  <minServerVersion>3.4.0</minServerVersion>
+  <licenseType>lgpl</licenseType>
+
+  <!-- Admin console meta-data -->
+    <adminconsole>              
+
+
+    </adminconsole>
+</plugin>

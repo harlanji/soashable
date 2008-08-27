@@ -1,0 +1,42 @@
+<assembly>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <baseDirectory>${artifactId}</baseDirectory>
+    <formats>
+        <format>dir</format>
+        <format>zip</format>
+    </formats>
+    
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <useTransitiveFiltering>true</useTransitiveFiltering>
+            <includes>
+                <include>org.mortbay.jetty:jetty</include>
+                <include>org.mortbay.jetty:jetty-util</include>
+                <include>org.mortbay.jetty:start</include>
+            </includes>
+            <outputFileNameMapping>${artifactId}.${extension}</outputFileNameMapping>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>webapps</outputDirectory>
+            <useTransitiveFiltering>true</useTransitiveFiltering>
+            <unpack>true</unpack>
+            <unpackOptions>
+                <excludes>
+                    <exclude>WEB-INF/classes/tokbox.properties</exclude>
+                </excludes>
+            </unpackOptions>
+            <includes>
+                <include>com.soashable:soashable-web</include>
+            </includes>
+            <outputFileNameMapping>root</outputFileNameMapping>
+        </dependencySet>
+    </dependencySets>
+    <fileSets>
+	    <fileSet>
+	        <directory>src/main/launcher</directory>
+	        <outputDirectory></outputDirectory>
+	    </fileSet>
+    </fileSets>
+    
+</assembly>

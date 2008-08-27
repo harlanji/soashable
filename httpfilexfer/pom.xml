@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <parent>
+        <artifactId>soashable-web-master</artifactId>
+        <groupId>com.soashable</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.soashable</groupId>
+    <artifactId>httpfilexfer</artifactId>
+    <packaging>openfire-plugin</packaging>
+    <name>HTTP File Transfer Openfire Plugin</name>
+    <version>1.0-SNAPSHOT</version>
+    <url>http://soashable.sourceforge.net/${artifactId}</url>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.igniterealtime.openfire</groupId>
+            <artifactId>openfire</artifactId>
+            <version>[3.5.0,)</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <!-- for commons-fileupload -->
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.reucon.maven.plugins</groupId>
+                <artifactId>maven-openfire-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <jspPackageName>com.soashable.httpfilexfer.jsp</jspPackageName>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>httpfilexfer</finalName>
+    </build>
+</project>

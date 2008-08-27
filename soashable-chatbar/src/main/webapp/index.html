@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="scripts/lib/jquery-ui/themes/flora/flora.all.css" type="text/css" media="screen" title="Flora (Default)">
+
+        <script type="text/javascript" src="scripts/lib/crypto/crypto.js"></script>  
+        <script type="text/javascript" src="scripts/lib/xml4script/dom-all.js"></script>
+        <script type="text/javascript" src="scripts/lib/log4js/log4js.js"></script>
+        <script type="text/javascript" src="scripts/lib/xmpp4js/xmpp4js.js"></script>
+
+        <script type="text/javascript" src="scripts/lib/jquery/jquery.js"></script>
+        <script type="text/javascript" src="scripts/lib/jquery-ui/ui.core.js"></script>
+        <script type="text/javascript" src="scripts/lib/jquery-ui/ui.draggable.js"></script>
+        <script type="text/javascript" src="scripts/lib/jquery-ui/ui.droppable.js"></script>
+        <script type="text/javascript" src="scripts/lib/jquery-ui/ui.sortable.js"></script>
+        <script type="text/javascript" src="scripts/lib/jquery-ui/ui.dialog.js"></script>
+        <script type="text/javascript" src="scripts/lib/jquery-ui/ui.resizable.js"></script>
+        <script type="text/javascript" src="scripts/lib/jquery-ui/ui.tabs.js"></script>
+
+        <script type="text/javascript" src="scripts/soashable.application.js"></script>
+        <script type="text/javascript" src="scripts/soashable.tabstrip.js"></script>
+        <script type="text/javascript" src="scripts/soashable.chat.js"></script>
+        <script type="text/javascript" src="scripts/soashable.status.js"></script>
+        <script type="text/javascript" src="scripts/soashable.notices.js"></script>
+        <script type="text/javascript" src="scripts/soashable.onlinefriends.js"></script>
+
+        <script type="text/javascript" src="scripts/lib/cookies.js"></script>
+        <script type="text/javascript" src="scripts/lib/json2.js"></script>
+
+        <script type="text/javascript" src="scripts/soashable.init.js"></script>
+        
+        <style type="text/css">    
+            
+                #chatbar .tabs {
+                    position: fixed;
+                    bottom: 0px;
+                    right: 0px;
+                    width: 100%;
+                    /*
+                    border-top: 1px solid black;
+                    background-color: #c0c0c0;
+                    */
+                    padding: 0px;
+                }
+                
+                #chatbar .ui-tabs-panel {
+                    position: fixed;
+                    bottom: 26px;
+                    right: 0px;
+                    width: 200px;
+                    border: 1px solid black;
+                    background-color: #c0c0c0;
+                }
+                
+                #chatbar .tabs li {
+                    float: right;
+                    border-left: 1px solid black;
+                    border-top: 1px solid black;
+                    background-color: #c0c0c0;
+                    margin: 0px;
+                    
+                }
+                
+                .ui-tabs-hide { 
+                    display: none; 
+                }
+                
+                .ui-tabs-nav .ui-tabs-selected a {
+                    margin: 5px 0pt 0pt;
+                    top: auto;
+                    color: white;
+                }
+                
+                .ui-tabs-nav .ui-tabs-selected a span {
+                    height: 20px;
+                    line-height: 20px;
+                    padding-top: 1px;
+                    color: white;
+                }
+                
+                .ui-tabs-nav a, .ui-tabs-nav a span {
+                    background-image: none;
+                    background-color: transparent;
+                    color: black;
+                }
+            
+        </style>
+        
+        
+    </head>
+    <body>
+        <button onclick="addTab()">Add Tab</button>
+        
+        <div id="chatbar">
+            
+            <ul class="tabs">
+                <!-- fixed bug in jquery that errors if there are no tabs -->
+            </ul>
+            
+        </div>
+    </body>
+</html>
+

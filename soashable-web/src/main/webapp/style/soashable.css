@@ -1,0 +1,234 @@
+body {
+    background: white url(../images/bg.png) repeat-x fixed top;
+}
+
+.overlay_alert {
+	background-color: blue;
+	-moz-opacity:0.4;
+	filter:alpha(opacity=40);
+	
+}
+
+#roster_container {
+	width: 250px;
+}
+
+#info {
+	background-color: white;
+}
+
+.roster_hover {
+	background-color: yellow;
+}
+
+.imWindow {
+	width: 90%;
+}
+
+.imWindow .font-toolbar {
+	width: 100%;
+}
+
+.imWindow .font-toolbar .dropdown {
+	display: inline;
+}
+
+.imWindow .msgArea {
+	width: 100%;
+}
+
+.imWindow .iResp {
+  width: 100%;
+  height: 60%;
+  max-height: 60%;
+  overflow: scroll;
+  min-height: 16em;
+  border: 1px solid black;
+
+}
+
+.clear {
+  height: 0px;
+  clear: both;
+}
+
+
+
+
+
+dl.form {
+	display: block;
+	width: 330px;
+	margin:0pt;
+}
+dl.form dt, dl.form dt label {
+	width: 80px;	
+}
+dl.form dd, dl.form dd input, dl.form dd select, dl.form dd textarea {
+	width: 235px;
+}
+
+dl.form dt {
+	float: left;
+	text-align: right;
+	
+	margin:0pt;
+	padding:0pt 10px 0pt 0pt;
+}
+
+dl.form dt label {
+	text-align: right;
+	display: block;
+	padding-top: 6px;
+	-moz-user-select: none;
+	font-weight: bold;
+	overflow: hidden;
+	
+}
+
+dl.form dt label:after {
+		content: ':';
+}
+
+dl.form dd {
+	float: left;
+	margin:0pt 0pt 10px;
+}
+
+
+
+dl.form dd textarea {
+	display: block;	
+	margin: 0px 0px 0px 0px;
+	height: 100px;
+	overflow: scroll;
+}
+
+
+
+.x-type-available {
+    font-weight: bold;
+}
+
+.x-type-unavailable {
+    font-weight: normal;
+}
+
+.x-show-normal {
+    color: black;
+}
+
+.x-show-away, .x-show-xa {
+    color: grey;
+}
+
+.x-show-dnd {
+    color: red;
+}
+
+/**
+ * Status icons
+ */
+ 
+.status-icon {
+    background: transparent url(/images/status/status.png) repeat-y scroll;
+    height: 11px;
+    width: 11px;
+}
+
+.status-normal {
+    background-position: 0px 0px;
+}
+
+.status-away {
+    background-position: 0px -11px;
+}
+
+.status-dnd{
+    background-position: 0px -22px;
+}
+
+.status-chat {
+    background-position: 0px -33px;
+}
+
+.status-xa {
+    background-position: 0px -44px;
+}
+
+.status-invisible {
+    background-position: 0px -55px;
+}
+
+.status-offline {
+    background-position: 0px -66px;
+}
+
+.status-person {
+    background-position: 0px -77px;
+}
+
+.status-justout {
+    background-position: 0px -88px;
+}
+
+.status-justin {
+    background-position: 0px -99px;
+}
+
+.x-btn-textonly {
+    color: black;
+    text-decoration: none;
+}
+
+.x-btn-textonly:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+#support_link {
+    font-family:verdana,arial,sans-serif;
+    font-size:13px;
+    line-height:18px;
+    font-weight: bold;
+    float: right;
+    text-align: right;
+}
+
+#info_links {
+    position: fixed; 
+    bottom: 15px; 
+    right: 15px;
+    
+    font-family:verdana,arial,sans-serif;
+    font-size:13px;
+    line-height:18px;
+    text-align: right;
+}
+#info_links a {
+  color: #FF6600;
+  text-decoration: none;
+}
+
+#info_links a:hover {
+  text-decoration: underline;
+}
+
+.blog-entry p {
+    color:#666666;
+    font-family:verdana,arial,sans-serif;
+    font-size:12px;
+    line-height:18px;
+}
+
+.blog-entry a {
+    color: #FF6600;
+    text-decoration: none;
+    font-size:12px;
+    line-height:18px;
+}
+
+.blog-entry a:hover {
+    color: #FF6600;
+    text-decoration: underline;
+}

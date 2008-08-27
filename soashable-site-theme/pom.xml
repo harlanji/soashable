@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <parent>
+        <artifactId>soashable-web-master</artifactId>
+        <groupId>com.soashable</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.soashable</groupId>
+    <artifactId>soashable-site-theme</artifactId>
+    <name>Soashable Site Theme</name>
+    <version>1.0-SNAPSHOT</version>
+    <url>http://soashable.sourceforge.net/${artifactId}</url>
+    <description>
+        The theme used by the Soashable generated project sites. It is utilized 
+        by including a skin element in a project's site.xml.
+    </description>
+    
+    <build>
+
+    </build>
+    
+</project>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.soashable</groupId>
+    <artifactId>upnp-servlet-listener</artifactId>
+    <packaging>jar</packaging>
+
+    <name>UPnp Servlet Context Listener</name>
+    <url>http://soashable.sourceforge.net/${artifactId}</url>
+    
+    <parent>
+        <groupId>com.soashable</groupId>
+        <artifactId>soashable-web-master</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    
+    <profiles>
+        <profile>
+            <id>netbeans-public</id>
+            <activation>
+                <property>
+                    <name>netbeans.execution</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+                                    <classpathPrefix>lib</classpathPrefix>
+                                    <mainClass>com.mycompany.mavenproject1.App</mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>nb</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>directory</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptor>${basedir}/src/main/assemblies/netbeans-run.xml</descriptor>
+                                    <finalName>executable</finalName>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>sbbi</groupId>
+            <artifactId>sbbi-upnplib</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>sbbi</groupId>
+            <artifactId>sbbi-jmx</artifactId>
+            <version>1.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+        
+    </dependencies>
+</project>

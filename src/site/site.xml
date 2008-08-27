@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2006-2007 the original author or authors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<project name="${project.name}">
+
+    <skin>
+        <groupId>com.soashable</groupId>
+        <artifactId>soashable-site-theme</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </skin>
+
+    <poweredBy>
+        <logo
+            name="SourceForge.net Logo" 
+            img="http://sflogo.sourceforge.net/sflogo.php?group_id=217403&amp;type=1" 
+            href="http://sourceforge.net"/>
+        <logo
+            name="Built By Maven"
+            img="images/logos/maven-feather.png" 
+            href="http://maven.apache.org/"/>
+    </poweredBy>
+    
+  <body>
+      
+    <links>
+      <item name="Soashable" href="http://soashable.sourceforge.net"/>
+      <item name="Xmpp4Js" href="http://xmpp4js.sourceforge.net"/>  
+      <item name="Live Demo" href="http://www.soashable.com/" />
+      <item name="Blog" href="http://soashable.blogspot.com/" />
+      <item name="Wiki" href="http://soashable.wiki.sourceforge.net/"/>
+    </links>
+      
+    <menu ref="parent" inherit="top"/>
+    
+    <menu ref="modules" inherit="bottom"/>
+    <menu ref="reports" inherit="bottom"/>
+    </body>
+</project>
+

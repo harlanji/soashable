@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>sbbi</groupId>
+    <artifactId>sbbi-upnplib</artifactId>
+    <version>1.0.4</version>
+    <packaging>jar</packaging>
+    
+    <name>SBBI UPNPLib</name>
+    <url></url>
+    <description>
+        
+    </description>
+    
+    <dependencies>
+        <dependency>
+            <groupId>sbbi</groupId>
+            <artifactId>sbbi-jmx</artifactId>
+            <version>1.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>commons-jxpath</groupId>
+            <artifactId>commons-jxpath</artifactId>
+            <version>1.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging-api</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+    </dependencies>
+    
+    <distributionManagement>
+        <repository>
+            <id>mvn.soashable.com</id>
+            <url>
+                http://mvn.soashable.com/artifactory/libs-releases
+            </url>
+        </repository>
+        <snapshotRepository>
+            <id>mvn.soashable.com</id>
+            <url>
+                http://mvn.soashable.com/artifactory/libs-snapshots
+            </url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

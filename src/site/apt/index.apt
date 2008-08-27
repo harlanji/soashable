@@ -1,0 +1,66 @@
+ ------
+ About
+ ------
+ Harlan Iverson
+ ------
+ 02/08/2008
+ ------
+
+ Soashable is a family of {{{http://www.opensource.org/docs/osd}Open Source}} projects 
+ related to XMPP on the web. The flagship project is a web-based IM client similar 
+ to (but not affiliated with) Meebo. An online demo can be found on our main domain 
+ at {{{http://soashable.com}soashable.com}}.
+
+Soashable
+
+ "{{{/soashable-web}Soashable}}" is the flagship project in the Soashable family. It 
+ is the core application that all other members support. It was originally developed 
+ as a proof of concept over the course of a weekend, and now serves as a test-bed 
+ and driver of technology to support it.
+
+Xmpp4Js
+
+ {{{http://xmpp4js.sourceforge.net}Xmpp4Js}} was originally derived from the Soashable 
+ code base and is now a stand-alone project which can be used by anyone who wants 
+ to XMPP-enable a web application. 
+
+ It is a BOSH client directly comparable to 
+ {{{http://zeank.in-berlin.de/jsjac/}JSJaC}}, which is another quality Javascript 
+ BOSH library worth looking into. One key difference is that Xmpp4Js supports 
+ Alternative Script Syntax which allows for cross-domain usage.
+
+Robot Olympics
+
+ {{{/robot-olympics}Robot Olympics}} is a 
+ {{{http://en.wikipedia.org/wiki/SPIM}Spim}} (IM Spam) 
+ fighting plugin for Openfire 
+ that is loosely based on 
+ {{{http://www.xmpp.org/extensions/xep-0158.html}XEP-0158}} 
+ and 
+ {{{http://www.xmpp.org/extensions/xep-0159.html}XEP-0159}}. 
+ It watches for tell-tale signs of abusive activity and subjects clients to 
+ an accessible {{{http://textcaptcha.com/}Text Captcha}} logic puzzle. Future plans 
+ include properly implementing the XMPP extensions.
+
+Project Relationship
+
+[images/project-family.png] Project Family. Help, Graphic Designers?
+
+ Reusable components are an important part of the vision of Soashable. We beleive 
+ in reinventing the wheel as little as possible, and sharing our work as discrete, 
+ well documented, well tested, extensible sections that can be recycled by anyone.
+
+Javascript Maven Tools
+
+ While not a direct piece of Soashable itself, 
+ {{{http://mojo.codehaus.org/javascript-maven-tools/}Javascript Maven Tools}} 
+ is the build tool which allows all projects to be built and tested in a consistent, 
+ reiable, automated fashion and cleanly depend upon eachother. This tool was created 
+ based on several ideas from Soashable's original, custom build system, jslibbuilder.
+
+ It can be used by 
+ any Javascript or Web project and is the recommended method of using projects 
+ that come out of the Soashable family.
+ 
+
+ 

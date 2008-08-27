@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.soashable</groupId>
+    <artifactId>soashable-web-master</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>Soashable</name>
+    <description>The master project containing other Soashable web related projects.</description>
+
+    <modules>
+        <module>soashable-site-theme</module>
+        
+        <module>jhb</module>
+        <module>upnp-servlet-listener</module>
+        <module>soashable-ui-components</module>
+    	<module>soashable-web</module>
+        <module>soashable-chatbar</module>
+        <module>soashable-launcher</module>
+        
+        <module>robot-olympics</module>
+    <module>httpfilexfer</module>
+    <module>openfire-cometd</module>
+    <module>fatsoash</module>
+  </modules>
+
+    <build>
+    </build>
+
+
+
+    <repositories>
+        <repository>
+            <id>soashable-libs-snapshots</id>
+            <url>http://mvn.soashable.com/artifactory/libs-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>soashable-libs-releases</id>
+            <url>http://mvn.soashable.com/artifactory/libs-releases</url>
+            <releases>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>soashable-plugins-snapshots</id>
+            <url>http://mvn.soashable.com/artifactory/plugins-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>        
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>soashable-plugins-releases</id>
+            <url>http://mvn.soashable.com/artifactory/plugins-releases</url>
+            <releases>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    
+    <developers>
+        <developer>
+            <id>h.iverson</id>
+            <name>Harlan Iverson</name>
+            <email>h.iverson at gmail dot com</email>
+            <url>http://blog.devspan.com</url>
+        </developer>
+    </developers>
+    
+    <contributors>
+        <contributor>
+            <name>Clayton Smith</name>
+            <email>ces.fci at gmail dot com</email>
+            <url>http://goatzebra.blogspot.com</url>
+            <roles>
+                <role>Provider of endless feedback &amp; ideas</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Matthew Purland</name>
+            <email>m.purland at gmail dot com</email>
+        </contributor>
+    </contributors>
+
+    <issueManagement>
+        <system>Soashable Issues</system>
+        <url>http://code.google.com/p/soashable/issues/list</url>
+    </issueManagement>
+    
+    <mailingLists>
+        <mailingList>
+            <name>Soashable Commit</name>
+            <archive>http://groups.google.com/group/soashable-commit</archive>
+            <post>soashable-commit@googlegroups.com</post>
+            <subscribe>http://groups.google.com/group/soashable-commit/subscribe</subscribe>
+            <unsubscribe>soashable-commit-unsubscribe@googlegroups.com</unsubscribe>
+        </mailingList>
+        <mailingList>
+            <name>Soashable Issues</name>
+            <archive>http://groups.google.com/group/soashable-commit</archive>
+            <post>soashable-commit@googlegroups.com</post>
+            <subscribe>http://groups.google.com/group/soashable-issues/subscribe</subscribe>
+            <unsubscribe>soashable-issues-unsubscribe@googlegroups.com</unsubscribe>
+        </mailingList>
+        <mailingList>
+            <name>Soashable Development</name>
+            <archive>http://groups.google.com/group/soashable-dev</archive>
+            <post>soashable-dev@googlegroups.com</post>
+            <subscribe>http://groups.google.com/group/soashable-dev/subscribe</subscribe>
+            <unsubscribe>soashable-dev-unsubscribe@googlegroups.com</unsubscribe>
+        </mailingList>
+        <mailingList>
+            <name>Xmpp4Js Commit</name>
+            <archive>https://lists.sourceforge.net/lists/listinfo/xmpp4js-commit</archive>
+            <post>xmpp4js-commit@lists.sourceforge.net</post>
+            <subscribe>https://lists.sourceforge.net/lists/listinfo/xmpp4js-commit</subscribe>
+            <unsubscribe>https://lists.sourceforge.net/lists/listinfo/xmpp4js-commit</unsubscribe>
+        </mailingList>
+        <mailingList>
+            <name>Xmpp4Js Bugs</name>
+            <archive>https://lists.sourceforge.net/lists/listinfo/xmpp4js-bugs</archive>
+            <post>xmpp4js-bugs@lists.sourceforge.net</post>
+            <subscribe>https://lists.sourceforge.net/lists/listinfo/xmpp4js-bugs</subscribe>
+            <unsubscribe>https://lists.sourceforge.net/lists/listinfo/xmpp4js-bugs</unsubscribe>
+        </mailingList>
+    </mailingLists>
+
+    <distributionManagement>
+        <repository>
+            <id>mvn.soashable.com</id>
+            <url>http://mvn.soashable.com/artifactory/libs-snapshots</url>
+        </repository>
+        <snapshotRepository>
+            <id>mvn.soashable.com</id>
+            <url>http://mvn.soashable.com/artifactory/libs-snapshots</url>
+        </snapshotRepository>
+        <site>
+            <id>sourceforge.net-site</id>
+            <url>scp://shell.sourceforge.net/home/groups/s/so/soashable/htdocs</url>
+        </site>
+    </distributionManagement>
+    
+</project>

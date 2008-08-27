@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+#macro ( link $href $name )
+  #if ( ( $href.toLowerCase().startsWith("http") || $href.toLowerCase().startsWith("https") ) )
+    <a href="$href" class="externalLink $classNames">$name</a>
+  #else
+    <a href="$href">$name</a>
+  #end
+#end
+
+#macro ( banner $banner $id )
+  #if ( $banner )
+    #if( $banner.href )
+      <a href="$banner.href" id="$id" #if( $banner.alt ) title="$banner.alt" #end >
+    #else
+        <div id="$id">
+    #end
+
+    #if( $banner.src )
+        #set ( $src = $banner.src )
+        #if ( ! ( $src.toLowerCase().startsWith("http") || $src.toLowerCase().startsWith("https") ) )
+            #set ( $src = $PathTool.calculateLink( $src, $relativePath ) )
+            #set ( $src = $src.replaceAll( "\\", "/" ) )
+        #end
+        #if ( $banner.alt )
+            #set ( $alt = $banner.alt )
+        #else
+            #set ( $alt = $banner.name )
+        #end
+        <img src="$src" alt="$alt" />
+    #else
+        $banner.name
+    #end
+
+    #if( $banner.href )
+        </a>
+    #else
+        </div>
+    #end
+  #end
+#end
+
+#macro ( links $links )
+    #if( $decoration.body.links && $decoration.body.links.size() > 0 )
+    <div id="menu_bar">
+      <ul>
+          #foreach( $item in $links )
+            #set ( $currentItemHref = $PathTool.calculateLink( $item.href, $relativePath ) )
+            #set ( $currentItemHref = $currentItemHref.replaceAll( "\\", "/" ) )
+            <li>#link( $currentItemHref $item.name )</li>
+          #end
+      </ul>
+    </div>
+    #end
+#end
+
+#macro ( breadcrumbs $breadcrumbs )
+  #set ( $counter = 0 )
+  #foreach( $item in $breadcrumbs )
+    #set ( $counter = $counter + 1 )
+    #set ( $currentItemHref = $PathTool.calculateLink( $item.href, $relativePath ) )
+    #set ( $currentItemHref = $currentItemHref.replaceAll( "\\", "/" ) )
+
+    #if ( $currentItemHref == $alignedFileName || $currentItemHref == "" )
+      $item.name
+    #else
+      #link( $currentItemHref $item.name )
+    #end
+    #if ( $breadcrumbs.size() > $counter )
+      &gt;
+    #end
+  #end
+#end
+
+#macro ( displayTree $display $item )
+  #if ( $item && $item.items && $item.items.size() > 0 )
+    #foreach( $subitem in $item.items )
+      #set ( $subitemHref = $PathTool.calculateLink( $subitem.href, $relativePath ) )
+      #set ( $subitemHref = $subitemHref.replaceAll( "\\", "/" ) )
+      #set ( $display = false )
+      #if ( $alignedFileName == $subitemHref )
+        #set ( $display = true )
+      #end
+
+      #displayTree( $display $subitem )
+    #end
+  #end
+#end
+
+#macro ( menuLink $href $name )
+  #if ( ( $href.toLowerCase().startsWith("http") || $href.toLowerCase().startsWith("https") ) )
+    <a href="$href" class="menu_link">$name</a>
+  #else
+    <a href="$href" class="menu_link">$name</a>
+  #end
+#end
+
+#macro ( menuItem $item )
+  #set ( $collapse = "none" )
+  #set ( $currentItemHref = $PathTool.calculateLink( $item.href, $relativePath ) )
+  #set ( $currentItemHref = $currentItemHref.replaceAll( "\\", "/" ) )
+
+  #if ( $item && $item.items && $item.items.size() > 0 )
+    #if ( $item.collapse == false )
+      #set ( $collapse = "expanded" )
+    #else
+      ## By default collapsed
+      #set ( $collapse = "collapsed" )
+    #end
+
+    #set ( $display = false )
+    #displayTree( $display $item )
+
+    #if ( $alignedFileName == $currentItemHref || $display )
+      #set ( $collapse = "expanded" )
+    #end
+  #end
+  <li class="$collapse">
+    #if ( $item.img )
+      #if ( ! ( $item.img.toLowerCase().startsWith("http") || $item.img.toLowerCase().startsWith("https") ) )
+        #set ( $src = $PathTool.calculateLink( $item.img, $relativePath ) )
+        #set ( $src = $src.replaceAll( "\\", "/" ) )
+        <img src="$src"/>
+      #else
+        <img src="$item.img" align="absbottom" style="border-width: 0"/>
+      #end
+    #end
+    #if ( $alignedFileName == $currentItemHref )
+      <strong>$item.name</strong>
+    #else
+      #menuLink( $currentItemHref $item.name )
+    #end
+  #if ( $item && $item.items && $item.items.size() > 0 )
+    #if ( $collapse == "expanded" )
+      <ul class="arrow_list">
+        #foreach( $subitem in $item.items )
+          #menuItem( $subitem )
+        #end
+      </ul>
+    #end
+  #end
+  </li>
+#end
+
+
+
+#macro ( mainMenu $menus )
+  #foreach( $menu in $menus )
+    #if ( $menu.name )
+    <h3>$menu.name</h3>
+    #end
+    #if ( $menu.items && $menu.items.size() > 0 )
+    <ul class="arrow_list">
+      #foreach( $item in $menu.items )
+        #menuItem( $item )
+      #end
+    </ul>
+    #end
+  #end
+#end
+
+#macro ( copyright )
+  #if ( $project )
+    #set ( $currentYear = ${currentDate.year} + 1900 )
+
+    #if ( ${project.inceptionYear} && ( ${project.inceptionYear} != ${currentYear.toString()} ) )
+      ${project.inceptionYear}-${currentYear}
+    #else
+      ${currentYear}
+    #end
+
+    #if ( ${project.organization} && ${project.organization.name} )
+      ${project.organization.name}
+    #else
+      Harlan Iverson
+    #end
+  #end
+#end
+
+#macro ( publishDate $position $publishDate $version )
+  #if ( $publishDate && $publishDate.format )
+    #set ( $format = $publishDate.format )
+  #else
+    #set ( $format = "yyyy-MM-dd" )
+  #end
+
+  $dateFormat.applyPattern( $format )
+
+  #set ( $dateToday = $dateFormat.format( $currentDate ) )
+
+  $i18n.getString( "site-renderer", $locale, "template.lastpublished" ): $dateToday
+#end
+
+#macro ( poweredByLogo $poweredBy )
+    <h3>Powered By</h3>
+    <div class="powered_by_box">
+    #if( $poweredBy )
+        #foreach ($item in $poweredBy)
+            #if( $item.href )
+                #set ( $href = $PathTool.calculateLink( $item.href, $relativePath ) )
+                #set ( $href = $href.replaceAll( "\\", "/" ) )
+            #else
+                #set ( $href="http://maven.apache.org/" )
+            #end
+
+            #if( $item.name )
+                #set ( $name = $item.name )
+            #else
+                #set ( $name = $i18n.getString( "site-renderer", $locale, "template.builtby" )  )
+                #set ( $name = "${name} Maven"  )
+            #end
+
+            #if( $item.img )
+                #set ( $img = $item.img )
+            #else
+                #set ( $img = "images/logos/maven-feather.png" )
+            #end
+
+            <a href="$href" title="$name" class="poweredBy">
+              #set ( $img = $PathTool.calculateLink( $img, $relativePath ) )
+              #set ( $img = $img.replaceAll( "\\", "/" ) )
+              <img  class="poweredBy"  
+                    alt="$name" 
+                    src="$img" 
+                    width="90"
+                    height="30"
+              />
+            </a>
+        #end
+        #if( $poweredBy.isEmpty() )
+          <a href="http://maven.apache.org/" title="$i18n.getString( "site-renderer", $locale, "template.builtby" ) Maven" class="poweredBy">
+            <img class="poweredBy" 
+                 alt="$i18n.getString( "site-renderer", $locale, "template.builtby" ) Maven" 
+                 src="$relativePath/images/logos/maven-feather.png" 
+                 width="90"
+                 height="30"
+                 border="1" />
+          </a>
+        #end
+    #else
+        <a href="http://maven.apache.org/" title="$i18n.getString( "site-renderer", $locale, "template.builtby" ) Maven" class="poweredBy">
+          <img class="poweredBy" 
+               alt="$i18n.getString( "site-renderer", $locale, "template.builtby" ) Maven" 
+               src="$relativePath/images/logos/maven-feather.png" 
+               width="90"
+               height="30"
+               border="1"
+               />
+        </a>
+    #end
+    </div>
+#end
+
+
+
+
+#macro ( header )
+
+    #foreach( $author in $authors )
+      <meta name="author" content="$author" />
+    #end
+    <meta http-equiv="Content-Type" content="text/html; charset=${outputEncoding}" />
+    #if ( $decoration.body.head )
+      #foreach( $item in $decoration.body.head.getChildren() )
+        ## Workaround for DOXIA-150 due to a non-desired behaviour in p-u
+        ## @see org.codehaus.plexus.util.xml.Xpp3Dom#toString()
+        ## @see org.codehaus.plexus.util.xml.Xpp3Dom#toUnescapedString()
+        #set ( $documentHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" )
+        #set ( $documentHeader = $documentHeader.replaceAll( "\\", "" ) )
+        #if ( $item.name == "script" )
+          $StringUtils.replace( $item.toUnescapedString(), $documentHeader, "" )
+        #else
+          $StringUtils.replace( $item.toString(), $documentHeader, "" )
+        #end
+      #end
+    #end
+
+#end
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+Copyright: Darren Hester 2006, http://www.designsbydarren.com
+License: Released Under the "Creative Commons License", 
+http://creativecommons.org/licenses/by-nc/2.5/
+-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <!-- Site Title -->
+    <title>$title</title>
+
+    <!-- Link to Style External Sheet -->
+    <link href="css/maven-theme.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="syntaxhighlighter/SyntaxHighlighter.css"></link>
+
+    #header()
+</head>
+
+<body>
+    <div id="page_wrapper">
+
+    <div id="page_header">
+        <h1>${project.name}</h1>
+        <h2>Soashable: The <em>social</em> web based messenger.</h2>
+    </div>
+
+
+    #links( $decoration.body.links )
+
+
+
+<div id="content_wrapper">
+
+<div id="left_side">
+
+<h3>$title</h3>
+
+$bodyContent
+
+</div>
+
+<div id="right_side">
+
+<h3>About $project.name</h3>
+
+<p>
+$project.description
+</p>
+
+#mainMenu( $decoration.body.menus )
+
+#poweredByLogo( $decoration.poweredBy )
+
+</div>
+
+
+<div id="spacer"></div>
+
+</div>
+
+<div id="page_footer">
+
+<p>&copy; #copyright()<br />
+#publishDate( "left" $decoration.publishDate $decoration.version )</p>
+
+</div>
+
+</div>
+
+<script language="javascript" src="syntaxhighlighter/shCore.js"></script>
+<script language="javascript" src="syntaxhighlighter/shBrushJava.js"></script>
+<script language="javascript" src="syntaxhighlighter/shBrushXml.js"></script>
+<script language="javascript" src="syntaxhighlighter/shBrushJScript.js"></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'syntaxhighlighter/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=3875411; 
+var sc_invisible=1; 
+var sc_partition=47; 
+var sc_click_stat=1; 
+var sc_security="f22232d5"; 
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c.statcounter.com/3875411/0/f22232d5/1/" alt="stats count" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

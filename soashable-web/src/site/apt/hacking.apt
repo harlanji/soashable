@@ -1,0 +1,59 @@
+ ------
+ The HACKING File
+ ------
+ Harlan Iverson
+ ------
+ 02/08/2008
+ ------
+
+The HACKING File
+
+ The idea of a HACKING file is 'stolen' from the Subversion project, as it's
+ a particularly nice thing to have around. It will be the mother of many more
+ specific topics.
+
+* The Xmpp4Js HACKING file
+
+ Soashable is built on the Xmpp4Js library, so its hacking fill will also be useful. 
+ {{http://xmpp4js.sf.net/hacking.html}}
+
+* Why EXTJS 2.0?
+
+ The original prototype for Soashable was built using Prototype Window. While 
+ the library was reasonable, it wasn't very friendly to customization and 
+ had no framework for reusable widgets. 
+
+ After some exploration, the project came to be build on EXTJS 1.1, which was solid, 
+ but had a lot of annoying issues related to creating trees of components. After 
+ EXT 2.0 was announced (less than a month later, go figure), I did some preliminary 
+ impact assessment, and overall it was a pretty sizable change. So I explored 
+ Dojo 1.0. 
+
+ I was very impressed by Dojo, especially the ability to create widgets out of 
+ HTML markup (dojoType=) and bind a javascript class to them for event handling,
+ etc. But in the end, I went ahead with the EXTJS 2.0 upgrade simply because 
+ the component code of Xmpp4Js (the bulk of the code at the time) required almost 
+ no change. Even though Soashable itself required considerable change to UI components,
+ it was less work overall. Dojo would have worked great, but a value judgement 
+ was made to go the path that required the least work, since neither framework 
+ provided a killer feature over the other. 
+
+* Why Maven? Isn't that for Java projects?
+
+ Maven was originally meant to build Java artifacts, but thanks to the flexible 
+ design it can now handle a wide range of languages, including Javascript. It 
+ is ideal because it handles dependencies, versioning, automated testing, documentation 
+ and report generation, and deployment. It does this in such a way that old builds 
+ are reproducable, getting a new workspace setup is simple, and new builds are 
+ able to happen in a continuous integration environment like Cruise Control.
+
+ Ant is capable of offering these benefits, but I was not interested in rolling 
+ my own build system (and maintaining it!) when Maven does exactly what I need.
+
+* Why Open Source?
+
+ The value that this project provides isn't its source code. The more people adopt 
+ this platform, the more valuable it becomes for everyone. That can translate into 
+ at least as many dollars for me as if it were proprietary. I'm not too worried 
+ about 'rogue' companies building closed networks on the platform, because there 
+ is plenty of market share to go around and that only makes it bigger.
