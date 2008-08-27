@@ -13,7 +13,6 @@
         
         <module>jhb</module>
         <module>upnp-servlet-listener</module>
-        <module>soashable-ui-components</module>
     	<module>soashable-web</module>
         <module>soashable-chatbar</module>
         <module>soashable-launcher</module>
@@ -21,7 +20,6 @@
         <module>robot-olympics</module>
     <module>httpfilexfer</module>
     <module>openfire-cometd</module>
-    <module>fatsoash</module>
   </modules>
 
     <build>

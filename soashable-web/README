@@ -1,5 +1,0 @@
-Soashable is an advanced Jabber client written in Javascript. It was written as an experiment to learn more XMPP, and HTTP Binding (XEP-0124) in particular. My interest may go away at any time, but hopefully somebody gets some use out of it :). Without open source software to build on (Openfire, JSJaC, Prototype Window) I never would have had the motivation to carry this out.
-
-Note that I'm not proud of the quality of the code, but it works ;)
-
-For more information on this project or whatever I happen to be doing, check out my journal at http://blog.devspan.com.
